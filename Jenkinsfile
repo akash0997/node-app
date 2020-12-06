@@ -16,7 +16,8 @@ stages {
                 docker login --username ${usr} --password ${pass}
                 docker push akash97/${JOB_NAME}:${BUILD_NUMBER}
                 docker push akash97/${JOB_NAME}:latest
-       }        '''
+             '''
+       }       
      }
    }
   stage ("Pull latest image") {
