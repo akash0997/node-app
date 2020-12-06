@@ -10,8 +10,7 @@ stages {
              script{
                    try {
                        def dockerDetails = readJSON file: "${env.WORKSPACE}/docker-details.json"
-                       echo "$dockerDetails.docker_repo"
-                       dockerBuild()
+                       dockerBuild(dockerDetails.docker_user)
                        }
                    catch(Exception err)
     					{
@@ -53,7 +52,8 @@ stages {
         steps {
              script{
                    try {
-                       dockerDeploy()
+                       def dockerDetails = readJSON file: "${env.WORKSPACE}/docker-details.json"
+                       dockerDeploy(dockerDetails.docker_user,dockerDetails.external_port,dockerDetails.internal_port)
                        }
                    catch(Exception err)
     					{
