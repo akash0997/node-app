@@ -7,10 +7,10 @@ agent any
 stages {
  stage ("Build") {
        steps {
-             build()
-            sh 'docker build -t akash97/${JOB_NAME}:${BUILD_NUMBER} .';
-            sh 'docker tag akash97/${JOB_NAME}:${BUILD_NUMBER} akash97/${JOB_NAME}:latest'
-            sh 'docker images'
+             dockerBuild()
+            //sh 'docker build -t akash97/${JOB_NAME}:${BUILD_NUMBER} .';
+            //sh 'docker tag akash97/${JOB_NAME}:${BUILD_NUMBER} akash97/${JOB_NAME}:latest'
+            //sh 'docker images'
              }
        }
   stage ("Push to Docker registry") {
