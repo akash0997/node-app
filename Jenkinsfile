@@ -16,7 +16,7 @@ stages {
   stage ("Push to Docker registry") {
          steps {
             //withCredentials([usernamePassword(credentialsId: 'docker-cred', passwordVariable: 'pass', usernameVariable: 'usr')]){
-            dockerPush($usr,$pass)
+            dockerPush()
             // sh '''
             //     docker login --username ${usr} --password ${pass}
             //     docker push akash97/${JOB_NAME}:${BUILD_NUMBER}
