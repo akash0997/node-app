@@ -15,7 +15,7 @@ stages {
                    catch(Exception err)
     					{
         					
-						echo "Docker build failed due to ${err}"
+						error "Docker build failed due to ${err}"
     					}
                    }
              }
