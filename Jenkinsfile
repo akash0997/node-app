@@ -46,6 +46,7 @@ stages {
     					}
                    }
              }
+  }
   stage ("Deploy") {
         steps {
              script{
@@ -59,5 +60,6 @@ stages {
     					}
                    }
              }
-     }
+         }
+   }
 } 
