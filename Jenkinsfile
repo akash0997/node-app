@@ -9,7 +9,8 @@ stages {
        steps {
              script{
                    try {
-                     dockerBuild()
+                         sh "mvn install"
+                     //dockerBuild()
                        }
                    catch(Exception err)
     					{
