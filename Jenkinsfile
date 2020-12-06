@@ -11,8 +11,12 @@ stages {
        }
   stage ("Push to Docker registry") {
          steps {
-            sh 'docker push akash97/${JOB_NAME}:${BUILD_NUMBER}'
-            sh 'docker push akash97/${JOB_NAME}:latest'
+            withCredentials([usernamePassword(credentialsId: 'docker-cred', passwordVariable: 'pass', usernameVariable: 'usr')]){
+            sh '''
+                docker login --username ${usr} --password ${pass}
+                docker push akash97/${JOB_NAME}:${BUILD_NUMBER}
+                docker push akash97/${JOB_NAME}:latest
+               '''
      }
    }
   stage ("Pull latest image") {
