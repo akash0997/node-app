@@ -1,0 +1,5 @@
+{
+    "docker_repo": "akash97",
+    "external_port": 5000,
+    "internal_port": 8000
+}

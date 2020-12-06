@@ -9,6 +9,8 @@ stages {
        steps {
              script{
                    try {
+                       def dockerDetails = readJSON file: "${env.WORKSPACE}\\docker-details.json"
+                       echo "$dockerDetails.docker_repo"
                        dockerBuild()
                        }
                    catch(Exception err)
