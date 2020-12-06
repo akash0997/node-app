@@ -29,8 +29,8 @@ stages {
         steps {
              sh '''
                  container_id=$(docker ps -qf "name=${JOB_NAME}") && echo "Hello"
+                 docker run -p 5000:8000 --name ${JOB_NAME} -d akash97/${JOB_NAME}:latest
                 '''            
-             //sh 'docker run -p 5000:8000 --name ${JOB_NAME} -d akash97/${JOB_NAME}:latest'
               }
            }
      }
