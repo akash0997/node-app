@@ -48,7 +48,7 @@ stages {
                    }
              }
   }
-  stage ("Deploy") {
+  stage ("Deploy & test container") {
         steps {
              script{
                    try {
